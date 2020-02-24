@@ -2,7 +2,7 @@
 /*Logo*/
 img {
   display: block;
-  margin-left: auto;
+  margin-left: 520px;
   margin-right: auto;
   
 }
@@ -19,13 +19,13 @@ body {
 /*help position*/
 .help {
   padding-left: 1100px;
-  margin-top: -100px;
+  margin-top: -90px;
 }
 
 /*connect position*/
 .connect {
   padding-left: 1100px !important;
-  margin-top: -20px !important;
+  margin-top: 15px !important;
 }
 
 /*btn - colors*/
@@ -128,8 +128,8 @@ label {
     border-radius: 5px;
     text-align: center;
     position: fixed;
-    left: 50%;
-    top: 50%;
+    left: 565px !important;
+    top: 410px !important;
     margin-left: -256px;
     margin-top: -200px !important;
     overflow: hidden;
@@ -159,10 +159,10 @@ label {
     border-radius: 5px;
     text-align: left!important;
     position: fixed;
-    left: 50% !important;
-    top: 50% !important;
+    left: 565px !important;
+    top: 410px !important;
     margin-left: -440px !important;
-    margin-top: -290px !important;
+    margin-top: -370px !important;
     overflow: hidden;
     display: none;
     z-index: 99999;
@@ -205,5 +205,9 @@ hr {
     line-height: normal;
 }
 
-
+img.img_request {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 

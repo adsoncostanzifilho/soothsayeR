@@ -67,7 +67,7 @@ shinyServer(function(input, output, session){
         </h4>
         
         
-        <img src='img/request_ok.PNG' height='150px'>
+        <img src='img/request_ok.PNG' height='150px' class = 'img_request'>
 
         "
       ),

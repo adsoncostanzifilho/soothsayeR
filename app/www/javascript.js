@@ -9,7 +9,16 @@ window.onload = function(){
     "SoothsayeR please answer my question, it is very important!                                                                                                                                   ";
     let len = document.getElementById("petition").value.length;
     
-    if(e.key === ".")
+    let currentKey = event.key;
+    
+    const currentCode = e.which || e.code;
+    
+    if (!currentKey) 
+    {
+      currentKey = String.fromCharCode(currentCode);
+    }
+    
+    if(currentKey === ".")
     {
       answerToggle = !answerToggle;
       document.getElementById("petition").value += petition[len];
