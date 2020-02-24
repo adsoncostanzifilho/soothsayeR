@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.pptx
+*.dcf
+lixo.R
+test.R
+googleanalytics.js
