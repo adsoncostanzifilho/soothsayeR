@@ -71,14 +71,14 @@ body {
 }
 
 .es:hover, .es:active, .es:focus {
-  background-image: url(/img/es2.PNG);
+  background-image: url("img/es2.PNG");
   -webkit-border-radius: 50px !important;
   opacity: 1 !important;
 }
 
 
 .lang {
-  padding-right: 1100px;
+  padding-right: 100px;
   margin-top: -150px;
 }
 
@@ -348,3 +348,10 @@ img.img_request {
     margin-right: auto;
 }
 
+
+.response {
+    position: fixed;
+    min-height: 1px;
+    right: 1px;
+    left: 250px;
+}

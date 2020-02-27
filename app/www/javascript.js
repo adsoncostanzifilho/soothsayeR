@@ -37,7 +37,6 @@ window.onload = function(){
     {
       answerToggle = !answerToggle;
       document.getElementById("petition").value += petition[len];
-      console.log(answerToggle);
       return false;
     }
     
@@ -45,7 +44,6 @@ window.onload = function(){
     {
       answer += e.key;
       document.getElementById("petition").value += petition[len];
-      console.log(answer);
       return false;
     }
   };

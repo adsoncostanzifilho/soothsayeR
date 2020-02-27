@@ -10,7 +10,7 @@ shinyUI(
   fluidPage(
     # shiny js
     useShinyjs(),
-    tags$head(includeScript("www/googleanalytics.js")),
+    #tags$head(includeScript("www/googleanalytics.js")),
     tags$script(src = "javascript.js"),
     
     ##-- Favicon ----
@@ -79,7 +79,7 @@ shinyUI(
     
     # SET LANGUAGE
     column(
-      width = 8,
+      width = 3,
       class = "lang",
       radioGroupButtons(
         inputId = "lang",
@@ -124,8 +124,7 @@ shinyUI(
     br(), br(), br(), br(), br(), br(), br(), 
     
     column(
-      width = 2,
-      
+      width = 3,
       actionButton(
         inputId = "guess",
         icon = icon('magic'),
@@ -135,11 +134,8 @@ shinyUI(
     ),
     
     column(
-      width = 1
-    ),
-    
-    column(
       width = 9,
+      class = 'response',
       h1(textOutput("resp") %>% withSpinner(color = '#50849B'))
     )
     
