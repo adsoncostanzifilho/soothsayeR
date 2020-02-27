@@ -28,30 +28,145 @@ body {
   margin-top: 15px !important;
 }
 
-/*btn - colors*/
-.btn-default, .btn-default:focus{
+
+/* btn language */
+.en {
+  background: url("img/en2.PNG");
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+.en:hover, .en:active, .en:focus {
+  background: url("img/en2.PNG");
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+}
+
+.bra {
+  background: url("img/br2.PNG");
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  background-position: center;
+}
+
+.bra:hover, .bra:active, .bra:focus {
+  background: url("img/br2.PNG");
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+  background-position: center;
+}
+
+.es {
+  background: url("img/es2.PNG");
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.es:hover, .es:active, .es:focus {
+  background-image: url(/img/es2.PNG);
+  -webkit-border-radius: 50px !important;
+  opacity: 1 !important;
+}
+
+
+.lang {
+  padding-right: 1100px;
+  margin-top: -150px;
+}
+
+.radioGroupButtons.shiny-bound-input{
+  width: 110px !important;
+}
+
+.btn.radiobtn.btn-default{
+   -webkit-border-radius: 50px !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 0px 0px !important;
+}
+
+.btn{
+  border: 0px solid rgba(0, 0, 0, 0);
+  opacity: 1 !important;
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+    background-image: url(/img/black.PNG);
+    opacity: 0.3 !important;
+}
+
+
+
+/*** btn - colors ***/
+/*.btn-default, .btn-default:focus, .btn-default:active{
     color: #50849b;
     background-color: #093757;
     border-color: #093757;
     padding: 15px 15px;
+    opacity: 1 !important;
 }
 
+.btn-default:hover, .btn-default:active{
+    color: #50849b !important;
+    background-color: #061543 !important;
+    border-color: #093757 !important;
+    opacity: 1 !important;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}*/
+
+/*btn connect*/
+.btn_connect, .btn_connect:focus, .btn_connect:active{
+    color: #50849b;
+    background-color: #093757;
+    border-color: #093757;
+    padding: 15px 15px;
+    width: 110px;
+}
+
+.btn_connect:hover, .btn_connectt:active{
+    color: #50849b !important;
+    background-color: #061543 !important;
+    border-color: #093757 !important;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*btn help*/
 .btn_help, .btn_help:focus{
     color: #50849b;
     background-color: #093757;
     border-color: #093757;
-    padding: 15px 34px;
+    padding: 15px 30px;
+    width: 110px;
 }
 
+.btn_help:hover, .btn_help:active{
+    color: #50849b !important;
+    background-color: #061543 !important;
+    border-color: #093757 !important;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*btn guess*/
 .btn_guess, .btn_guess:focus{
     color: #50849b;
     background-color: #093757;
     border-color: #093757;
     padding: 30px 30px !important;
     font-size: 20px !important;
+    width: 180px !important;
 }
 
-.btn-default:hover, .btn-default:active{
+.btn_guess:hover, .btn_guess:active{
     color: #50849b !important;
     background-color: #061543 !important;
     border-color: #093757 !important;
@@ -109,6 +224,28 @@ body {
   color: #50849b;
 }
 
+/*css loader*/
+.load-container {
+    position: absolute;
+    top: 25px !important;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    overflow: hidden;
+    width: 100px !important;
+}
+
+.shiny-spinner-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    visibility: hidden;
+    height: 40px !important;
+}
+.shiny-spinner-placeholder{
+  height: 40px !important;
+}
+
 label {
     display: inline-block;
     max-width: 100%;
@@ -128,7 +265,7 @@ label {
     border-radius: 5px;
     text-align: center;
     position: fixed;
-    left: 565px !important;
+    left: 610px !important;
     top: 410px !important;
     margin-left: -256px;
     margin-top: -200px !important;
@@ -159,7 +296,7 @@ label {
     border-radius: 5px;
     text-align: left!important;
     position: fixed;
-    left: 565px !important;
+    left: 610px !important;
     top: 410px !important;
     margin-left: -440px !important;
     margin-top: -370px !important;

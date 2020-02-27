@@ -3,6 +3,8 @@ require(shiny)
 require(shinyWidgets)
 require(shinyalert)
 require(shinyjs)
+require(shinycssloaders)
+require(dplyr)
 
 shinyUI(
   fluidPage(
@@ -65,13 +67,29 @@ shinyUI(
         class   = 'btn_help')
     ),
     
-    # HELP
+    # RECONNECT
     column(
       width = 12,
       class = 'connect',
       actionButton(
         inputId = "connect",
-        label   = "Reconnect")
+        label   = "Reconnect",
+        class   = 'btn_connect')
+    ),
+    
+    # SET LANGUAGE
+    column(
+      width = 8,
+      class = "lang",
+      radioGroupButtons(
+        inputId = "lang",
+        label = "", 
+        choices = c(`<div class='en'></div>`  = "en", 
+                    `<div class='bra'></div>` = "bra", 
+                    `<div class='es'></div>`  = "es"),
+        justified = TRUE
+      )
+      
     ),
     
     br(), br(), br(), br(), br(), br(), br(),
@@ -85,7 +103,7 @@ shinyUI(
         inputId     = 'petition', 
         label       = 'Request:', 
         value       = "", 
-        placeholder = 'SoothsayeR please answer my question, it is very important!')
+        placeholder = 'R please answer my question, it is very important!')
     ),
     
     br(), br(), br(), br(), br(), br(),
@@ -115,9 +133,14 @@ shinyUI(
         class   = 'btn_guess')
       
     ),
+    
     column(
-      width = 10,
-      h1(textOutput("resp"))
+      width = 1
+    ),
+    
+    column(
+      width = 9,
+      h1(textOutput("resp") %>% withSpinner(color = '#50849B'))
     )
     
   )
