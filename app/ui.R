@@ -10,7 +10,7 @@ shinyUI(
   fluidPage(
     # shiny js
     useShinyjs(),
-    #tags$head(includeScript("www/googleanalytics.js")),
+    tags$head(includeScript("www/googleanalytics.js")),
     tags$script(src = "javascript.js"),
     
     ##-- Favicon ----

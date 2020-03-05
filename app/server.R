@@ -57,7 +57,7 @@ shinyServer(function(input, output, session){
         
         <h4>
         The game's idea is to play with your friends making questions that you know the answer, 
-        and make them believe that <b>soothsayeR</b> is who is answering...
+        and make them believe that <b>R</b> is who is answering...
         </h4>
         
         <hr>
@@ -74,12 +74,25 @@ shinyServer(function(input, output, session){
         </h4>
         
         <h4>
-        Then, when you have finished typing the answer you just need to press dot again 
+        When you have finished typing the answer you just need to press dot again 
         and complete the request phrase anyway you want.
         </h4>
         
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>"
+        <img src='img/request.PNG' height='150px' class = 'img_request'>
+        
+        
+        <h5>
+        <b>Example</b>: 
+        You tell a friend next to you that R can answer any question.
+        To prove it you say you’re going to ask R the color of the shirt he’s wearing.
+        In the request session you will write '<b>.red.</b>ase answer', 
+        but, only 'R please answer' will be shown on the screen.
+        In the next step you will write the following question: 
+        'What is the color of the t-shirt of the person next to me?'.
+        That done, just press 'Guess' button and the answer <b>red</b> will appear!
+        </h5>"
+        
     }
     
     if(input$lang == 'es')
@@ -90,8 +103,8 @@ shinyServer(function(input, output, session){
         </h4>
         
         <h4>
-        La idea del juego es jugar con tus amigos haciendo preguntas de las quales tu ya sabes las respuestas,
-        y hacerles creer que el R es quién está respondiendo ...
+        La idea es jugar con tus amigos haciendo preguntas de las quales tu ya sabes las respuestas,
+        y hacerles creer que el R es quién está respondiendo...
         </h4>
         
         <hr>
@@ -103,17 +116,30 @@ shinyServer(function(input, output, session){
         <h4>
         Sólo necesita presionar <b>punto</b> (.) en el teclado 
         en la sesión de petición y luego escribir la respuesta en secreto.
-        Cuando presionas <b>punto</b> en la entrada de texto de solicitud, todo lo que escriba se enmascarará, 
+        Cuando presionas <b>punto</b> en la entrada de texto de la petición, 
+        todo lo que escriba se enmascarará, 
         entonces va a poder poner la respuesta sin que nadie se dé cuenta.
         </h4>
         
         <h4>
         Luego, cuando haya terminado de escribir la respuesta, 
-        solo debe presionar punto nuevamente y completar la frase de solicitud de la forma que desee.
+        solo debe presionar punto nuevamente y completar la frase de petición de la forma que desee.
         </h4>
         
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>"
+        <img src='img/request.PNG' height='150px' class = 'img_request'>
+        
+        
+        <h5>
+        <b>Ejemplo</b>:
+        Le dices a un amigo a tu lado que R puede responder cualquier pregunta.
+        Para demostrarlo, dices que le preguntarás a R el color de la camisa que el lleva puesta.
+        En la sesión de solicitud, escribirá '<b>.rojo.</b>favor conteste',
+        pero, solo se mostrará 'R por favor conteste' en la pantalla.
+        En el siguiente paso escribirás la siguiente pregunta:
+        '¿De qué color es la camiseta de la persona que está a mi lado?'.
+        Hecho esto, solo presione el botón 'Adivinar' y aparecerá la respuesta <b>rojo</b>.
+        </h5> "
     }
     
     if(input$lang == 'bra')
@@ -124,8 +150,8 @@ shinyServer(function(input, output, session){
         </h4>
         
         <h4>
-        A idéia do jogo é brincar com seus amigos, fazendo perguntas das quais você já sabe as respostas,
-        e fazê-los acreditar que o R é quem está respondendo ...
+        A idéia é brincar com seus amigos, fazendo perguntas das quais você já sabe as respostas,
+        e fazê-los acreditar que o R é quem está respondendo...
         </h4>
         
         <hr>
@@ -137,18 +163,29 @@ shinyServer(function(input, output, session){
         <h4>
         Somente é necessário pressionar <b>ponto</b> (.) no teclado
         na sessão de solicitação e, em seguida, escrever a resposta em segredo.
-        Quando você pressiona <b>ponto</b> na entrada de texto solicitada, 
+        Quando você pressionar <b>ponto</b> na solicitação, 
         tudo o que você escrever será mascarado,
-        Então você será capaz de colocar a resposta sem que ninguém perceba.
+        e você será capaz de colocar a resposta sem que ninguém perceba.
         </h4>
         
         <h4>
-        Então, quando você terminar de escrever a resposta, 
-        você só precisará pressionar ponto novamente e concluir a frase de solicitação da maneira que desejar.
+        Quando você terminar de escrever a resposta, 
+        você só precisará pressionar ponto novamente e concluir a frase de solicitação da maneira que 
+        desejar.
         </h4>
         
+        <img src='img/request.PNG' height='150px' class = 'img_request'>
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>"
+        <h5>
+        <b>Exemplo</b>: 
+        Você diz a um amigo ao seu lado que o R é capaz de responder a qualquer pergunta.
+        Para demosntrar isso você diz que irá perguntar ao R a cor da camiseta que ele está usando.
+        Na sessão de solicitação você escreverá '<b>.vermelha.</b>r responda', 
+        porém, na tela somente aparecerá 'R por favor responda'.
+        No próximo passo você fará a seguinte pergunta: 
+        'Qual a cor da camiseta da pessoa ao meu lado?'.
+        Feito isso, basta pressionar o botão 'Adivinhar' que a resposta <b>vermelha</b> aparecerá!
+        </h5> "
     }
     
     shinyalert(
@@ -170,19 +207,19 @@ shinyServer(function(input, output, session){
     {
       if(input$lang == 'en')
       {
-        response = 'You need to ask me!'
+        response = 'You need to request!'
         Sys.sleep(1.5)
         return(response)
       }
       if(input$lang == 'es')
       {
-        response = '¡Necesitas preguntarme!'
+        response = '¡Necesitas hacer la petición!'
         Sys.sleep(1.5)
         return(response)
       }
       if(input$lang == 'bra')
       {
-        response = 'Você precisa me perguntar!'
+        response = 'Você precisa solicitar!'
         Sys.sleep(1.5)
         return(response)
       }
