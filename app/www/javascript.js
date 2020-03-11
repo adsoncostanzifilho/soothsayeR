@@ -33,7 +33,7 @@ window.onload = function(){
       currentKey = String.fromCharCode(currentCode);
     }
     
-    if(e.key == ".")
+    if(e.key === ".")
     {
       answerToggle = !answerToggle;
       document.getElementById("petition").value += petition[len];
