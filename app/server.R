@@ -79,7 +79,7 @@ shinyServer(function(input, output, session){
         </h4>
         
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>
+        <img src='img/request_ico.ico' height='150px' class = 'img_request'>
         
         
         <h5>
@@ -127,7 +127,7 @@ shinyServer(function(input, output, session){
         </h4>
         
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>
+        <img src='img/request_ico.ico' height='150px' class = 'img_request'>
         
         
         <h5>
@@ -174,7 +174,7 @@ shinyServer(function(input, output, session){
         desejar.
         </h4>
         
-        <img src='img/request.PNG' height='150px' class = 'img_request'>
+        <img src='img/request_ico.ico' height='150px' class = 'img_request'>
         
         <h5>
         <b>Exemplo</b>: 
