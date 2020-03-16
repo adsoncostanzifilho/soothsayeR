@@ -10,7 +10,7 @@ shinyUI(
   fluidPage(
     # shiny js
     useShinyjs(),
-    tags$head(includeScript("www/googleanalytics.js")),
+    #tags$head(includeScript("www/googleanalytics.js")),
     tags$script(src = "javascript.js"),
     
     ##-- Favicon ----
@@ -54,7 +54,7 @@ shinyUI(
     # LOGO
     column(
       width = 12, 
-      div(img(src = "img/logo.PNG", height = "100px"))
+      div(img(src = "img/logo2.ico", height = "100px"))
     ),
     
     # HELP
