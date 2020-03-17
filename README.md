@@ -1,4 +1,4 @@
-soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="120" />
+soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="130" />
 ============================================================================
 
 <br>
@@ -10,7 +10,7 @@ SoothsayeR is an interface developed in R based on the old prank called
 ‘**Peter answers**’..
 
 The game’s idea is to play with your friends making questions that you
-know the answer, and make them believe that <b>soothsayeR</b> is who is
+know the answer, and make them believe that <b>R</b> is who is
 answering…
 
 The tool is online on shinyapps’ repository at the address

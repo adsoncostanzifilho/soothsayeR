@@ -287,7 +287,7 @@ shinyServer(function(input, output, session){
           "Por que eu deveria responder isso?",
           "Por favor, tente novamente amanhã. Ou nunca...",
           "Estou cansado ... Tente novamente outra hora.",
-          "Agora não, estou ocupada. Talvez mais tarde..",
+          "Agora não, estou ocupado. Talvez mais tarde..",
           "Eu perdi a conexão. Reconecte-me, por favor!")
       }
       
