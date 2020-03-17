@@ -1,10 +1,8 @@
 SoothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="120" />
 ============================================================================
 
-![](thumbnail.PNG)
-
-About
------
+Overview
+--------
 
 SoothsayeR is an interface developed in R based on the old prank called
 ‘**Peter answers**’..
@@ -28,3 +26,17 @@ Then, when you have finished typing the answer you just need to press
 dot again and complete the request phrase anyway you want.
 
 ![](app/www/img/request_ok.PNG)
+
+### Example
+
+You tell a friend next to you that R can answer any question. To prove
+it you say you’re going to ask R the color of the shirt he’s wearing.
+
+In the request session you will write ‘.**red**.ase answer’, but, only
+‘R please answer’ will be shown on the screen. In the next step you will
+write the following question: ‘What is the color of the t-shirt of the
+person next to me?’.
+
+That done, just press ‘Guess’ button and the answer **red** will appear!
+
+![](app/www/img/ex.gif)
