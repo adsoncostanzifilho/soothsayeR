@@ -1,3 +1,8 @@
+SoothsayeR
+==========
+
+![](thumbnail.PNG)
+
 About
 -----
 
@@ -5,10 +10,10 @@ SoothsayeR is an interface developed in R based on the old prank called
 ‘**Peter answers**’..
 
 The game’s idea is to play with your friends making questions that you
-know the answer, and make them believe that **R** is who is
+know the answer, and make them believe that <b>soothsayeR</b> is who is
 answering…
 
-The tool is online on shinyapps’ repository at the adress
+The tool is online on shinyapps’ repository at the address
 <a href="https://adsoncostanzi.shinyapps.io/soothsayeR/" class="uri">https://adsoncostanzi.shinyapps.io/soothsayeR/</a>.
 
 How to play with soothsayeR?
@@ -20,17 +25,6 @@ the request text input everything you type will be masked, so you could
 put the answer without anyone noticing.
 
 Then, when you have finished typing the answer you just need to press
-dot again and complete the request frase anyway you want.
+dot again and complete the request phrase anyway you want.
 
 ![](app/www/img/request_ok.PNG)
-
-
-Example 
--------
-
-You tell a friend next to you that R can answer any question. 
-To prove it you say you’re going to ask R the color of the shirt he’s wearing. In the request session you will write '<b>.red.</b>ase answer', but, only 'R please answer' will be shown on the screen.
-In the next step you will write the following question: 'What is the color of the t-shirt of the person next to me?'. 
-That done, just press 'Guess' button and the answer **red** will appear!
-
-
