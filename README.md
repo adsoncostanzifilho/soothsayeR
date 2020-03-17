@@ -1,4 +1,4 @@
-soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="130" />
+soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="145" />
 ============================================================================
 
 <br>
