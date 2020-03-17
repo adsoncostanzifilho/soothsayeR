@@ -1,6 +1,8 @@
 SoothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="120" />
 ============================================================================
 
+<br>
+
 Overview
 --------
 
@@ -25,7 +27,7 @@ put the answer without anyone noticing.
 Then, when you have finished typing the answer you just need to press
 dot again and complete the request phrase anyway you want.
 
-![](app/www/img/request_ok.PNG)
+![](app/www/img/request2.PNG)
 
 ### Example
 
