@@ -1,23 +1,23 @@
 on:
- push:
-  branches:
+  push:
+    branches:
       - master
 
 name: shiny_deploy
 
 jobs:
- build:
-  runs-on: ubuntu-18.04
-  steps:
-   - uses: actions/checkout@v2
-   with:
-    fetch-depth: 0
-   - id: deploy
-    name: Deploy to shinyapps.io
-    uses: qwert666/shinyapps-actions@main
-    env:
-     SHINY_USERNAME: 'adsoncostanzi'
-     SHINY_TOKEN: ${{ secrets.SHINYAPP_TOKEN }}
-     SHINY_SECRET: ${{ secrets.SHINYAPP_SECRET }}
-     APP_NAME: 'soothsayeR'
-     APP_DIR: ''
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - id: deploy
+        name: Deploy to shinyapps.io
+        uses: qwert666/shinyapps-actions@main
+        env:
+          SHINY_USERNAME: 'adsoncostanzi'
+          SHINY_TOKEN: ${{ secrets.SHINYAPP_TOKEN }}
+          SHINY_SECRET: ${{ secrets.SHINYAPP_SECRET }}
+          APP_NAME: 'soothsayeR'
+          APP_DIR: ''
