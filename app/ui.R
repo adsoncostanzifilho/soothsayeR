@@ -103,7 +103,7 @@ shinyUI(
         inputId     = 'petition', 
         label       = 'Request:', 
         value       = "", 
-        placeholder = 'R please answer my question, it is very important!')
+        placeholder = 'R please answer my question, it is very important!TESTE!')
     ),
     
     br(), br(), br(), br(), br(), br(),
