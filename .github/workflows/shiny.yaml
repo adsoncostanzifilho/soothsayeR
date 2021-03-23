@@ -20,4 +20,4 @@ jobs:
           SHINY_TOKEN: ${{ secrets.SHINYAPP_TOKEN }}
           SHINY_SECRET: ${{ secrets.SHINYAPP_SECRET }}
           APP_NAME: 'soothsayeR'
-          APP_DIR: ''
+          APP_DIR: 'app'

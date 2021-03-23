@@ -6,6 +6,11 @@ require(shinyjs)
 require(shinycssloaders)
 require(dplyr)
 
+require(assertthat)
+require(cli)
+
+
+
 shinyUI(
   fluidPage(
     # shiny js
@@ -103,7 +108,7 @@ shinyUI(
         inputId     = 'petition', 
         label       = 'Request:', 
         value       = "", 
-        placeholder = 'R please answer my question, it is very important!TESTE2!')
+        placeholder = 'R please answer my question, it is very important!')
     ),
     
     br(), br(), br(), br(), br(), br(),
