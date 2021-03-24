@@ -12,6 +12,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - id: install packages
+        name: Install Packages
+        run: Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))' 
       - id: deploy
         name: Deploy to shinyapps.io
         uses: qwert666/shinyapps-actions@main
