@@ -16,8 +16,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install r packages
-        run: |
-          Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))'
+        run: Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))'
         name: Deploy to shinyapps.io
         uses: qwert666/shinyapps-actions@main
         env:
