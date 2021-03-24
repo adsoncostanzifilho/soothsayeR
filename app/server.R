@@ -6,7 +6,7 @@ shinyServer(function(input, output, session){
   observeEvent(TRUE, {
     shinyalert(
       className = 'sweet_connect',
-      text = HTML('Connecting soothsayeR to <b>everything22222</b>...'),
+      text = HTML('Connecting soothsayeR to <b>everything</b>...'),
       imageUrl = 'img/gif_connection2.gif',
       html = TRUE,
       closeOnClickOutside = FALSE,

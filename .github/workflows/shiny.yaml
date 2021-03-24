@@ -62,5 +62,5 @@ jobs:
         # deploy the app on shinyapps server
       - name: Deploy to shinyapps.io
         run: |
-          rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))
+          rsconnect::deployApp(appName = "soothsayeR", appDir = "app")
         shell: Rscript {0}
