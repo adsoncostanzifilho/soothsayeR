@@ -15,7 +15,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - id: rpackages
         name: Install Packages
-        run: Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))' 
+        run: Rscript -e 'install.packages(c("dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)' 
       - id: deploy
         name: Deploy to shinyapps.io
         uses: qwert666/shinyapps-actions@main
