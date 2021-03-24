@@ -14,13 +14,6 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
 
-      - name: Query dependencies
-        shell: Rscript {0}
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-
       - name: Cache packages
         uses: actions/cache@v2
         with:
