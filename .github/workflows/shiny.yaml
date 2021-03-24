@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - id: install packages
+      - id: rpackages
         name: Install Packages
         run: Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))' 
       - id: deploy
