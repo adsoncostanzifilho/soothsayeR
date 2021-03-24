@@ -9,7 +9,8 @@ name: Shiny-Deploy
 # Set the job, the machine and the R version
 jobs:
   Shiny-Deploy:
-    runs-on: ubuntu-latest 
+    #runs-on: ubuntu-latest 
+    runs-on: macos-10.15
     strategy:
       matrix:
         r-version: [4.0.2] 
@@ -19,7 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       # set-up an R installation in our GHA machine to run our scripts
       - name: Set up R ${{ matrix.r-version }}
-        uses: r-lib/actions/setup-r@master
+        # uses: r-lib/actions/setup-r@master # for ubuntu
+        uses: r-lib/actions/setup-R@v1 # for macos
         with:
           r-version: ${{ matrix.r-version }}
       # We will also need pandoc to compile our Shiny or RMarkdown report
@@ -31,9 +33,9 @@ jobs:
           install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders"))
         shell: Rscript {0}
       # Connect in shinyapps server
-      - name: Connect to Shiny
+      - name: Connect to ShinyApps
         env:
-        # set the shiny apps as environment variables
+        # set the shinyapps keys as environment variables
           SHINY_TOKEN: ${{ secrets.SHINY_TOKEN }}
           SHINY_SECRET: ${{ secrets.SHINY_SECRET }}
         run: |
@@ -42,7 +44,7 @@ jobs:
           rsconnect::setAccountInfo(name = 'adsoncostanzi', token = shiny_token, secret = shiny_secret)
         shell: Rscript {0}
         # deploy the app on shinyapps server
-      - name: Uploading to shinyapps.io
+      - name: Deploy to shinyapps.io
         run: |
           rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))
         shell: Rscript {0}
