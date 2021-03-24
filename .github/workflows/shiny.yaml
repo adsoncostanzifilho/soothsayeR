@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - id: deploy
-      - name: Install r packages
+        name: Install r packages
         run: |
           Rscript -e 'install.packages(c("shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "dplyr"))'
         name: Deploy to shinyapps.io
