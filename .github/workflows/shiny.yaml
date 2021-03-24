@@ -1,22 +1,59 @@
-on:
-  push:
-    branches:
-      - master
+# Triggered on push 
+on: [push]
 
-name: shiny_deploy
+# Name of the workflow => usethis::use_github_actions_badge("CI-CD")
+name: CI-CD
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
+  CI-CD:
+    runs-on: ubuntu-latest
+
     steps:
+
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - uses: r-lib/actions/setup-r@master
-      - id: rpackages
-        name: Install Packages and deploy
+
+      - name: Query dependencies
+        shell: Rscript {0}
+        run: |
+          install.packages('remotes')
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+
+      - name: Cache packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-
+
+      - name: Install system dependencies
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          Rscript -e "remotes::install_github('r-hub/sysreqs')"
+          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+          sudo -s eval "$sysreqs"
+
+      - name: Install dependencies
+        shell: Rscript {0}
+        run: remotes::install_deps(dependencies = TRUE)
+
+      - name: Check package
+        shell: Rscript {0}
+        run: |
+          install.packages("rcmdcheck")
+          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "warning")
+
+      - name: Deploy to shinyapps.io
+        env:
+          SHINYAPPS_ACCOUNT: ${{ secrets.SHINYAPPS_ACCOUNT }}
+          SHINYAPPS_TOKEN: ${{ secrets.SHINYAPPS_TOKEN }}
+          SHINYAPPS_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
         run: |
           install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)
-          rsconnect::setAccountInfo("adsoncostanzi", Sys.getenv("SHINYAPPS_TOKEN"), Sys.getenv("SHINYAPPS_SECRET"))
+          rsconnect::setAccountInfo(Sys.getenv("SHINYAPPS_ACCOUNT"), Sys.getenv("SHINYAPPS_TOKEN"), Sys.getenv("SHINYAPPS_SECRET"))
           rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))
         shell: Rscript {0}
