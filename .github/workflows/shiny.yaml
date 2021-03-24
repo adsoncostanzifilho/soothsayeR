@@ -36,8 +36,8 @@ jobs:
       - name: Connect to ShinyApps
         env:
         # set the shinyapps keys as environment variables
-          SHINY_TOKEN: ${{ secrets.SHINY_TOKEN }}
-          SHINY_SECRET: ${{ secrets.SHINY_SECRET }}
+          SHINY_TOKEN: ${{ secrets.SHINYAPP_TOKEN }}
+          SHINY_SECRET: ${{ secrets.SHINYAPP_SECRET }}
         run: |
           shiny_token = Sys.getenv("SHINY_TOKEN")
           shiny_secret = Sys.getenv("SHINY_SECRET")
