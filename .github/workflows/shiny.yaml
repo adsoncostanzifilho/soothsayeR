@@ -3,14 +3,17 @@ on:
   push:
     branches: [ master ]
 
-# Name of the workflow - usethis::use_github_actions_badge("shiny-deploy")
-name: shiny-deploy
+# Name of the workflow - usethis::use_github_actions_badge("Shiny-Deploy")
+name: Shiny-Deploy
 
+# Set the job, the machine and the R version
 jobs:
-  shiny-deploy:
-    # set an ubuntu machine
-    runs-on: ubuntu-latest
-
+  Shiny-Deploy:
+    runs-on: ubuntu-latest 
+    strategy:
+      matrix:
+        r-version: [4.0.2] 
+        
     steps:
       # This action clones your repository from the respective branch that has triggered it
       - uses: actions/checkout@v2
