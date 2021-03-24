@@ -13,7 +13,6 @@ jobs:
 
     steps:
       # This action clones your repository from the respective branch that has triggered it
-      - name: clone repository
       - uses: actions/checkout@v2
       # set-up an R installation in our GHA machine to run our scripts
       - name: Set up R ${{ matrix.r-version }}
