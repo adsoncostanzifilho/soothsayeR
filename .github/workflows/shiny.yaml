@@ -14,11 +14,9 @@ jobs:
           fetch-depth: 0
       - uses: r-lib/actions/setup-r@master
       - id: rpackages
-        name: Install Packages
+        name: Install Packages and deploy
         run: |
-          Rscript -e 'install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)' 
-      - id: deploy
-        name: Deploy to shinyapps.io
-        run: |
-          Rscript -e 'rsconnect::setAccountInfo("adsoncostanzi", Sys.getenv("SHINYAPPS_TOKEN"), Sys.getenv("SHINYAPPS_SECRET"))'
-          Rscript -e 'rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))'
+          install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)
+          rsconnect::setAccountInfo("adsoncostanzi", Sys.getenv("SHINYAPPS_TOKEN"), Sys.getenv("SHINYAPPS_SECRET"))
+          rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))
+        shell: Rscript {0}
