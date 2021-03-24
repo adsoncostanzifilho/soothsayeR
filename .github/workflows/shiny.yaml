@@ -1,31 +1,45 @@
-# Triggered on push 
-on: [push]
+# Triggered on push branch master
+on:
+  push:
+    branches: [ master ]
 
-# Name of the workflow => usethis::use_github_actions_badge("CI-CD")
-name: CI-CD
+# Name of the workflow => usethis::use_github_actions_badge("shiny-deploy")
+name: shiny-deploy
 
 jobs:
-  CI-CD:
+  shiny-deploy:
+    # set an ubuntu machine
     runs-on: ubuntu-latest
 
     steps:
-
+      # This action clones your repository from the respective branch that has triggered it
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@master
-      - name: Cache packages
-        uses: actions/cache@v2
+      # set-up an R installation in our GHA machine to run our scripts
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-R@v1
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-
-      - name: Deploy to shinyapps.io
-        env:
-          SHINYAPPS_ACCOUNT: ${{ secrets.SHINYAPPS_ACCOUNT }}
-          SHINYAPPS_TOKEN: ${{ secrets.SHINYAPPS_TOKEN }}
-          SHINYAPPS_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
+          r-version: ${{ matrix.r-version }}
+      # We will also need pandoc to compile our Shiny RMarkdown report
+      - name: Setting up pandoc for Rmd docs
+        uses: r-lib/actions/setup-pandoc@v1
+      # Install R packages
+      - name: Install dependencies
         run: |
-          install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)
-          rsconnect::setAccountInfo(Sys.getenv("SHINYAPPS_ACCOUNT"), Sys.getenv("SHINYAPPS_TOKEN"), Sys.getenv("SHINYAPPS_SECRET"))
+          install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders"))
+        shell: Rscript {0}
+      # Connect in shinyapps server
+      - name: Connect to Shiny
+        env:
+        # set the shiny apps as environment variables
+          SHINY_TOKEN: ${{ secrets.SHINY_TOKEN }}
+          SHINY_SECRET: ${{ secrets.SHINY_SECRET }}
+        run: |
+          shiny_token = Sys.getenv("SHINY_TOKEN")
+          shiny_secret = Sys.getenv("SHINY_SECRET")
+          rsconnect::setAccountInfo(name = 'adsoncostanzi', token = shiny_token, secret = shiny_secret)
+        shell: Rscript {0}
+        # deploy the app on shinyapps server
+      - name: Uploading to shinyapps.io
+        run: |
           rsconnect::deployApp(appName = "soothsayeR", appFiles = setdiff(list.files(), "app"))
         shell: Rscript {0}
