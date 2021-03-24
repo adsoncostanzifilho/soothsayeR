@@ -11,9 +11,7 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-
       - uses: r-lib/actions/setup-r@master
-
       - name: Cache packages
         uses: actions/cache@v2
         with:
@@ -21,13 +19,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-
-
-      - name: Check package
-        shell: Rscript {0}
-        run: |
-          install.packages("rcmdcheck")
-          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "warning")
-
       - name: Deploy to shinyapps.io
         env:
           SHINYAPPS_ACCOUNT: ${{ secrets.SHINYAPPS_ACCOUNT }}
