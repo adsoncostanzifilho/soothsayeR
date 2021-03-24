@@ -34,6 +34,7 @@ jobs:
             "rsconnect",
             "dplyr",
             "shiny", 
+            "shinyjs",
             "shinyWidgets",
             "shinyalert",
             "shinycssloaders",
