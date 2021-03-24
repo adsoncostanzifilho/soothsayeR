@@ -15,13 +15,10 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - id: rpackages
         name: Install Packages
-        run: Rscript -e 'install.packages(c("dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)' 
+        run: |
+          Rscript -e 'install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders", "assertthat"), dependencies = TRUE)' 
       - id: deploy
         name: Deploy to shinyapps.io
-        uses: qwert666/shinyapps-actions@main
-        env:
-            SHINY_USERNAME: 'adsoncostanzi'
-            SHINY_TOKEN: ${{ secrets.SHINYAPP_TOKEN }}
-            SHINY_SECRET: ${{ secrets.SHINYAPP_SECRET }}
-            APP_NAME: 'soothsayeR'
-            APP_DIR: 'app'
+        run: |
+          Rscript -e "rsconnect::setAccountInfo(name='adsoncostanzi', token=${{secrets.SHINYAPPS_TOKEN}}, secret=${{secrets.SHINYAPPS_SECRET}})"
+          Rscript -e "rsconnect::deployApp(appDir = 'app/', appName = 'soothsayeR')" 
