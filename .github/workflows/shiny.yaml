@@ -25,12 +25,28 @@ jobs:
         with:
           r-version: ${{ matrix.r-version }}
       # We will also need pandoc to compile our Shiny or RMarkdown report
-      - name: Setting up pandoc for Rmd docs
+      - name: Setting up pandoc for Rmd and Shiny
         uses: r-lib/actions/setup-pandoc@v1
       # Install R packages
       - name: Install dependencies
         run: |
-          install.packages(c("rsconnect", "dplyr", "shiny", "shinyWidgets", "shinyalert", "shinycssloaders"))
+          install.packages(c(
+            "rsconnect",
+            "dplyr",
+            "shiny", 
+            "shinyWidgets",
+            "shinyalert",
+            "shinycssloaders",
+            "evaluate",
+            "highr",
+            "knitr",
+            "markdown",
+            "rmarkdown",
+            "stringi",
+            "stringr",
+            "tinytex",
+            "xfun"
+          ))
         shell: Rscript {0}
       # Connect in shinyapps server
       - name: Connect to ShinyApps
