@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
+<!-- badges: start -->
+[![Shiny-Deploy](https://github.com/adsoncostanzifilho/soothsayeR/workflows/Shiny-Deploy/badge.svg)](https://github.com/adsoncostanzifilho/soothsayeR/actions)
+<!-- badges: end -->
+
 ## Overview
 
 SoothsayeR is an interface developed in R based on the old prank called '**Peter answers**'..

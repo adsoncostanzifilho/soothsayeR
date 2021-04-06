@@ -1,10 +1,13 @@
-soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="120" />
-============================================================================
+# soothsayeR <img src="app/www/img/thumbnail.PNG" align="right" width="120" />
 
 <br>
 
-Overview
---------
+<!-- badges: start -->
+
+[![Shiny-Deploy](https://github.com/adsoncostanzifilho/soothsayeR/workflows/Shiny-Deploy/badge.svg)](https://github.com/adsoncostanzifilho/soothsayeR/actions)
+<!-- badges: end -->
+
+## Overview
 
 SoothsayeR is an interface developed in R based on the old prank called
 ‘**Peter answers**’..
@@ -14,10 +17,9 @@ know the answer, and make them believe that <b>R</b> is who is
 answering…
 
 The tool is online on shinyapps’ repository at the address
-<a href="https://adsoncostanzi.shinyapps.io/soothsayeR/" class="uri">https://adsoncostanzi.shinyapps.io/soothsayeR/</a>.
+<https://adsoncostanzi.shinyapps.io/soothsayeR/>.
 
-How to play with soothsayeR?
-----------------------------
+## How to play with soothsayeR?
 
 You just need to press **dot** (.) on the keyboard in the request
 session and then write the answer secretly. When you press **dot** in
