@@ -203,7 +203,7 @@ shinyServer(function(input, output, session){
 
   answer <- eventReactive(input$guess, {
    
-     if(input$petition == "")
+    if(input$petition == "")
     {
       if(input$lang == 'en')
       {
@@ -253,7 +253,7 @@ shinyServer(function(input, output, session){
     
     if(input$question != "" && input$final_answer != "")
     {
-      response = input$final_answer
+      response <- input$final_answer
       Sys.sleep(1.5)
       return(response)
     } 
@@ -301,6 +301,7 @@ shinyServer(function(input, output, session){
   
   # R ANSWER OUTPUT# text output
   output$resp <- renderText({
+    bb<<-answer()
     answer()
   })
   

@@ -5,7 +5,7 @@ window.onload = function(){
   var lang         = "en";
   var petition     = "R please answer my question, it is very important!                                                                                                                                   ";
   
-  document.getElementById("petition").onkeypress = function change_letter(e)
+  document.getElementById("petition").onkeydown = function change_letter(e)
   {
     
     lang = document.querySelector('input[name="lang"]:checked').value;

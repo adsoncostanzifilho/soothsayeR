@@ -9,13 +9,15 @@ require(dplyr)
 
 shinyUI(
   fluidPage(
-    # shiny js
+    
+    # use shinyjs
     useShinyjs(),
-    #tags$head(includeScript("www/googleanalytics.js")),
-    tags$script(src = "javascript.js"),
     
     ##-- Favicon ----
     tags$head(
+      
+      tags$script(src = "javascript.js"),
+      
       tags$link(
         rel = "shortcut icon", 
         href = "img/logo.ico"),
@@ -29,7 +31,8 @@ shinyUI(
       tags$link(
         rel="stylesheet", 
         type = "text/css",
-        href = "https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro")
+        href = "https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro"),
+      
     ),
     
     ##-- Logo ----
